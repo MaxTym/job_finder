@@ -44,24 +44,19 @@
           <ul class="nav nav-pills nav-stacked">
             <li class="active"><a href="#section1">Home</a></li>
             <br>
-            <div class="input-group">
-              <input id='title' type="text" class="form-control" placeholder="Job title..">
-                </button>
-              </span>
-            </div>
             <br>
             <div class="input-group">
-              <input id='keyWord1' type="text" class="form-control" placeholder="key word..">
+              <input id='keyWord1' type="text" class="form-control" placeholder="job title, skills, keyword or company name..">
             </div><br>
             <div class="input-group">
-              <input id='keyWord2' type="text" class="form-control" placeholder="key word..">
+              <input id='keyWord2' type="text" class="form-control" placeholder="job title, skills, keyword or company name..">
             </div><br>
             <div class="input-group">
-              <input id='keyWord3' type="text" class="form-control" placeholder="key word..">
+              <input id='keyWord3' type="text" class="form-control" placeholder="job title, skills, keyword or company name..">
             </div>
           </ul><br>
           <div class="input-group">
-            <input id='zip' type="text" class="form-control" placeholder="Search area zip code..">
+            <input id='city' type="text" class="form-control" placeholder="zip code, city or state..">
             <span class="input-group-btn">
               <button id="search" class="btn btn-default" type="button">
                 <span class="glyphicon glyphicon-search"></span>
@@ -73,9 +68,11 @@
         <div class="col-sm-9">
           <h4><small>JOB SEARCH RESULTS</small></h4>
           <hr>
-          <h2>I Love Food</h2>
+          <h2><span id="count"></span></h2>
           <h5><span class="glyphicon glyphicon-time"></span> Post by Jane Dane, Sep 27, 2015.</h5>
-          <h5><span id="kw1" class="label label-danger"></span> <span id="kw2" class="label label-primary"></span></h5><br>
+          <h5><span id="kw1" class="label label-danger"></span>
+              <span id="kw2" class="label label-primary"></span>
+              <span id="kw3" class="label label-success"></span></h5><br>
           <div id='jobs'><p></p>
           <br><br>
           </div>
@@ -83,7 +80,6 @@
           <hr>
           <h2>Officially Blogging</h2>
           <h5><span class="glyphicon glyphicon-time"></span> Post by John Doe, Sep 24, 2015.</h5>
-          <h5><span class="label label-success">Lorem</span></h5><br>
           <p></p>
           <hr>
 

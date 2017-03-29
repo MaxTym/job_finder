@@ -27,15 +27,14 @@ $.ajaxSetup({
     }
 });
 
-partnerId =	'135478'
-key = 'fItGuDKCqV9'
-console.log("works")
 
-function getJobs(){
-    zip = $("#zip").val()
-    key1 = $('#keyWord1').val()
-    key2 = $('#keyWord2').val()
-    key3 = $('#keyWord3').val()
+var city = $("#city").val()
+var key1 = $('#keyWord1').val()
+var key2 = $('#keyWord2').val()
+var key3 = $('#keyWord3').val()
+
+
+function getJobsDice(){
     $("#jobs").html("")
     $("#jobs").append("<tr><td> Jobs: <br><br>")
     var $table = $("<p>")
@@ -45,23 +44,36 @@ function getJobs(){
         for (var i = 0; i < openings.length; i++){
            $table.html($table.html() + "<br><a href=" + openings[i]['detailUrl'] + " target='_blank'>" + openings[i]['jobTitle'] + "</a><br> Company: "
                                      + openings[i]['company'] + "<br>" + openings[i]['location'] + " " + openings[i]['date'] + "<br>")
-
+           $('#count').text(openings.length + " jobs found");
            $('#kw1').text($('#keyWord1').val());
            $('#kw2').text($('#keyWord2').val());
+           $('#kw3').text($('#keyWord3').val());
            $('#jobs').append($table)
-           }
-        })
+        }
+    })
 }
-    // $("#info").html("")
-    //    $("#info").append("<tr><td> Characters: <br><br>")
-    //    var $table = $("<p>")
-    //    for (var j = 1; j < 10; j++){
-    //        $.ajax('http://swapi.co/api/people?page=' +j).done(function (stuff){
-    //        var people = stuff.results
-    //        for (var i = 0; i < people.length; i++){
-    //            $table.html($table.html() + "<tr><td>" + people[i]['name'] + "<br>")
-    //            $('#info').append($table)
-    //            }
-    //        })
-    //    }
-$('#search').click(getJobs)
+
+
+function getJobsIndeed(){
+    var city = $("#city").val()
+    var key1 = $('#keyWord1').val()
+    var key2 = $('#keyWord2').val()
+    var key3 = $('#keyWord3').val()
+    $("#jobs").html("")
+    $("#jobs").append("<tr><td> Jobs: <br><br>")
+    var $table = $("<p>")
+    $.ajax('http://api.indeed.com/ads/apisearch?publisher=6844415622929466&format=json&q=' + key1 + '+' + key2 + '+' + key3 + '&l=' + city + '&sort=date&radius=40&st=&jt=&start=&limit=50&fromage=30&filter=&latlong=1&co=us&chnl=&userip=1.2.3.4&useragent=Mozilla/%2F4.0%28Firefox%29&v=2').done(function (stuff){
+        console.log(stuff.results)
+        var openings = stuff.results
+        for (var i = 0; i < openings.length; i++){
+           $table.html($table.html() + "<br><a href=" + openings[i]['url'] + " target='_blank'>" + openings[i]['jobtitle'] + "</a><br>"
+                                     + openings[i]['company'] + "<br>" + openings[i]['city'] + ", " + openings[i]['date'] + "<br>")
+           $('#count').text(openings.length + " jobs found");
+           $('#kw1').text($('#keyWord1').val());
+           $('#kw2').text($('#keyWord2').val());
+           $('#kw3').text($('#keyWord3').val());
+           $('#jobs').append($table)
+        }
+    })
+}
+$('#search').click(getJobsIndeed)
