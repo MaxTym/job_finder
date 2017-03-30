@@ -10,10 +10,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 #
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
-#
-SECRET_KEY = os.environ['SECRET_KEY']
+# SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -100,15 +97,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-DATABASES = {
-    'default': {
-    }
-}
-
-db_from_env = dj_database_url.config(conn_max_age=500)
-
-DATABASES['default'].update(db_from_env)
-DATABASES['default'] =  dj_database_url.config()
+# DATABASES = {
+#     'default': {
+#     }
+# }
+#
+# db_from_env = dj_database_url.config(conn_max_age=500)
+#
+# DATABASES['default'].update(db_from_env)
+# DATABASES['default'] =  dj_database_url.config()
 
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
